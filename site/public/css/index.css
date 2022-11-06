@@ -7,9 +7,6 @@ body {
   margin: 0;
   border: 0;
   box-sizing: border-box;
-  background-image: url(../assets/Ellie-Joel.jpg);
-  height: 130vh;
-  background-size: cover;
 }
 
 ul {
@@ -27,33 +24,28 @@ a {
 }
 
 header {
-    background-color: black;
-}
-
-.home {
-    display: flex;
-    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.400);
     width: 100%;
+    position: fixed;
 }
 
 .container {
-    padding: 20px;
-    margin-left: 15px;
-    margin-right: 15px;
+    margin: 10px;
+    padding: 15px;
     display: flex;
     justify-content: space-between;
-
+    align-items: center;
 }
 
 .logo {
     color: aquamarine;
     display: flex;
-    justify-content: space-between;
-    background-image: url(../assets/vagalume-logo.png);
+    width: 160px;
+    align-items: center;
 }
 
 .cadastro {
-    width: 600px;
+    width: 40%;
 }
 
 .cadastro ul {
@@ -62,5 +54,7 @@ header {
 }
 
 .joel {
- 
+    background-image: url(../assets/Ellie-Joel.jpg);
+    height: 130vh;
+    background-size: cover;
 }
