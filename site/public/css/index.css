@@ -53,7 +53,7 @@ header {
     justify-content: space-between;
 }
 
-.joel {
+.imagem_fundo {
     background-image: url(../assets/Ellie-Joel.jpg);
     height: 130vh;
     background-size: cover;
