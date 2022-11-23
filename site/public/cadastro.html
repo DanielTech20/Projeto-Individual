@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/cadastro.css">
+    <script src="./js/cadastro.js"></script>
     <title>The Last Of Us</title>
 </head>
+
 <body>
-    
+
     <header>
         <div class="container">
             <div class="logo">
                 <img src="./assets/vagalume-removebg-preview.png" width="50px" alt="">
-                The Last Of Us 
+                The Last Of Us
             </div>
 
             <div class="cadastro">
@@ -32,29 +35,72 @@
                 <div class="caixa-formulario">
                     <h2>Bem-vindo!</h2>
                     <div class="campo">
-                        <label for="nome">Nome:</label>
+                        <label for="nome">Nome:</label><br>
                         <input type="text" name="nome" id="nome" placeholder="Seu Nome">
                     </div>
                     <div class="campo">
-                        <label for="email">Email:</label>
+                        <label for="email">Email:</label><br>
                         <input type="email" name="email" id="email" placeholder="Digite seu email">
                     </div>
                     <div class="campo">
-                        <label for="senha">Senha:</label>
+                        <label for="senha">Senha:</label><br>
                         <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
                     </div>
                     <div class="campo">
-                        <label for="confirmacao_senha">Confirmação da Senha:</label>
+                        <label for="confirmacao_senha">Confirmação da Senha:</label><br>
                         <input type="password" name="senha" id="confirmar_senha" placeholder="Digite sua senha">
                     </div>
+                    <br>
                     <button>Cadastrar</button>
+                </div>
+
+                <div class="pior-inimigo">
+                    <div class="campo2">
+                        <label>Inimigo preferido:</label>
+                        <select name="inimigos" id="inimigos" onclick="selecao_inimigo()">
+                            <option selected disabled>Inimigos</option>
+                            <option value="humano">Humanos</option>
+                            <option value="corredor">Corredores</option>
+                            <option value="perseguidor">Perseguidores</option>
+                            <option value="estalador">Estaladores</option>
+                            <option value="verme">Vermes</option>
+                        </select>
+
+                        <div class="embrulho_imgs">
+                            <div class="card_humano" id="humano">
+                                <div class="imagem">
+                                    <img src="./assets/militar.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="card_corredor" id="corredor">
+                                <div class="imagem">
+                                    <img src="./assets/corredor.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="card_perseguidor" id="perseguidor">
+                                <div class="imagem">
+                                    <img src="./assets/perseguidor.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="card_estalador" id="estalador">
+                                <div class="imagem">
+                                    <img src="./assets/estalador.jpeg" alt="">
+                                </div>
+                            </div>
+                            <div class="card_verme" id="verme">
+                                <div class="imagem">
+                                    <img src="./assets/verme.jpeg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
-    
+
     <footer>
-        sou eu de novo!
     </footer>
 </body>
+
 </html>
