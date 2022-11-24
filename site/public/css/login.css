@@ -1,10 +1,6 @@
 /* CONFIGURAÇÕES INICIAIS */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 
-html {
-  scroll-behavior: smooth;
-}
-
 /* HOME */
 body {
   font-family: "Roboto", sans-serif;
@@ -25,7 +21,7 @@ li {
 
 a {
     text-decoration: none;
-    color: yellowgreen;
+    color: rgb(164, 204, 83);
 }
 
 header {
@@ -60,31 +56,69 @@ header {
 
 .banner {
     background-image:url(../assets/cadastro.jpeg);
-    padding: 139px 0;
+    padding: 140px 0;
     background-size: cover;
 }
 
 .banner .container {
-    height: 350px;
+    /* border: solid 1px violet; */
+    display: flex;
+    justify-content: end;
+    height: 425px;
+    width: 1100px;
     align-items: center;
     margin-left: 250px;
     margin-right: 250px;
 }
 
-.banner p {
-    color: #fff;
-    font-size: 36px;
-    width: 280px;
-}
-
-.caixa-formulario {
-    background-color: antiquewhite;
+.caixa-formulario-login {
+    /* border: solid 1px violet; */
+    background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
-    width: 200px;
-    height: 280px;
-    padding: 50px;
+    height: 450px;
+    width: 300px;
+}
+
+.caixa-formulario-login .campo {
+    /* border: solid 1px violet; */
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    line-height: 10px;
+}
+
+.caixa-formulario-login  input {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: solid 2px #fff;
+    text-align: center;
+}
+
+.caixa-formulario-login  h2, label {
+    color: #fff;
+}
+
+.caixa-formulario-login  button {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    transition: 0.6s;
+    margin-top: -20px;
+    width: 130px;
+    height: 40px;
+    border-radius: 15px;
+}
+
+.caixa-formulario-login  button:hover {
+    cursor: pointer;
+    background-color: rgb(164, 204, 83);
 }
 
 /* Rodapé */
