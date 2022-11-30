@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/login.css">
+    <script src="./js/cadastro.js"></script>
+    <script src="./js/funcoes.js"></script>
     <title>The Last Of Us</title>
 </head>
 <body>
@@ -42,11 +44,22 @@
                         <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
                     </div>
                     <br>
-                    <a href="dicas.html"><button>Logar</button></a>
+                    <button onclick="entrar()">Logar</button>
                 </div>
             </div>
         </section>
     </main>
+
+    <div class="mensagem_erro">
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+        </div>
+        <div id="div_aguardar" class="divAguardar">
+                <img src="./assets/loading.gif" id="loading-gif" >
+        </div>
+    </div>
     
     <footer>
         sou eu de novo!

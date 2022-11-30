@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/dicas.css">
+    <link rel="stylesheet" href="../css/dicas.css">
     <script src="./js/funcoes.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -17,13 +17,15 @@
     <header>
         <div class="container">
             <div class="logo">
-                <img src="./assets/vagalume-removebg-preview.png" width="50px" alt="">
+                <img src="../assets/vagalume-removebg-preview.png" width="50px" alt="">
                 The Last Of Us
             </div>
 
             <div class="cadastro">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../dashboard/dicas.html">Dicas</a></li>
+                    <li><a href="../dashboard/mensagem.html">Mensagem</a></li>
                 </ul>
             </div>
         </div>
@@ -50,61 +52,148 @@
     <footer>
     </footer>
 </body>
+
 <script>
-    const labels = [
-        'Humanos',
-        'Corredores',
-        'Perseguidores',
-        'Estaladores',
-        'Vermes'
-    ];
-
-    const data = {
-        labels: labels,
-        datasets: [{
-            label: 'Temperatura',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [30, 29, 28, 25, 22, 23],
-        }]
-    };
-
-    const config = {
-        type: 'bar',
-        data: data,
-        options: {}
-    };
-
-</script>
-<script>
-
-    const myChart = new Chart(
-        document.getElementById('myChart'),
-        config
-    );
-
+    
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    
+    async function delayedGreeting() {
+        $('#banner').css('background', 'url("../assets/dicas1.jpg")');
+        await sleep(5000);
+        $('#banner').css('background', 'url("../assets/dicas2.jpg")');
+        await sleep(5000);
+        $('#banner').css('background', 'url("../assets/dicas3.jpg")');
+        await sleep(5000);
+        
+        delayedGreeting();
+        
+    }
+    
+    delayedGreeting();
+    
 </script>
 
 </html>
 
 <script>
+    obterDadosGrafico();
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-async function delayedGreeting() {
-    $('#banner').css('background', 'url("./assets/dicas1.jpg")');
-        await sleep(5000);
-    $('#banner').css('background', 'url("./assets/dicas2.jpg")');
-        await sleep(5000);
-    $('#banner').css('background', 'url("./assets/dicas3.jpg")');
-        await sleep(5000);
-
-    delayedGreeting();
-
-}
-
-delayedGreeting();
-
+      function obterDadosGrafico() {
+    
+    fetch(`/medidas/ultimas`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                resposta.reverse();
+    
+                plotarGrafico(resposta);
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+    }
+    
+    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+    function plotarGrafico(resposta) {
+    console.log('iniciando plotagem do gráfico...');
+    
+    // Criando estrutura para plotar gráfico - labels
+    let labels = ['Inimigo favorito das pessoas'];
+    
+    // Criando estrutura para plotar gráfico - dados
+    let dados = {
+        labels: labels,
+        datasets: [{
+            label: 'Humano',
+            data: [],
+            fill: false,
+            borderColor: '#ea422c',
+            backgroundColor: '#ea422c',
+            tension: 0.1
+        },
+        {
+            label: 'Corredor',
+            data: [],
+            fill: false,
+            borderColor: '#db4ce4',
+            backgroundColor: '#db4ce4',
+            tension: 0.1
+        },
+        {
+            label: 'Perseguidor',
+            data: [],
+            fill: false,
+            borderColor: '#e4412c',
+            backgroundColor: '#e4412c',
+            tension: 0.1
+        },
+        {
+            label: 'Estalador',
+            data: [],
+            fill: false,
+            borderColor: '#7cbc44',
+            backgroundColor: '#7cbc44',
+            tension: 0.1
+        },
+        {
+            label: 'Verme',
+            data: [],
+            fill: false,
+            borderColor: '#fcec7c',
+            backgroundColor: '#fcec7c',
+            tension: 0.1
+        }]
+    };
+    
+    
+    console.log('----------------------------------------------')
+    console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+    console.log(resposta)
+    
+    // Inserindo valores recebidos em estrutura para plotar o gráfico
+    for (i = 0; i < resposta.length; i++) {
+        var valores = resposta[i];
+        dados.datasets[0].data.push(valores.humano);
+        dados.datasets[1].data.push(valores.corredor);
+        dados.datasets[2].data.push(valores.perseguidor);
+        dados.datasets[3].data.push(valores.estalador);
+        dados.datasets[4].data.push(valores.verme);
+    }
+    
+    console.log('----------------------------------------------')
+    console.log('O gráfico será plotado com os respectivos valores:')
+    console.log('Labels:')
+    console.log(labels)
+    console.log('Dados:')
+    console.log(dados.datasets)
+    console.log('----------------------------------------------')
+    
+    
+    // Criando estrutura para plotar gráfico - config
+    const config = {
+        type: 'bar',
+        data: dados,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        },
+    };
+    
+    // Adicionando gráfico criado em div na tela
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+    }
 </script>
