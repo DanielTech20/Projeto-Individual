@@ -65,7 +65,14 @@ function cadastrar(req, res) {
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-    var inimigos = req.body.inimigosServer;
+    var preferido = req.body.preferidoServer;
+    var qtdMortes = req.body.qtdMortesServer;
+
+    console.log(nome);
+    console.log(email);
+    console.log(senha);
+    console.log(preferido);
+    console.log(qtdMortes);
 
     // Faça as validações dos valores
     if (nome == undefined) {
@@ -74,12 +81,14 @@ function cadastrar(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    } else if (inimigos == undefined) {
-        res.status(400).send("Seu inimigo está undefined!");
+    } else if (preferido == undefined) { 
+        res.status(400).send("Seu inimigo preferido está undefined!");
+    } else if (qtdMortes == undefined) {
+        res.status(400).send("Sua quantidade de mortes está undefined!");
     } else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha, inimigos)
+        usuarioModel.cadastrar(nome, email, senha, preferido, qtdMortes)
             .then(
                 function (resultado) {
                     res.json(resultado);

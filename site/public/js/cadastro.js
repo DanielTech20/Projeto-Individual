@@ -1,9 +1,8 @@
 var inimigo_anterior = 0;
-var lista_inimigos = []
-var lista_escolha = []
+
 function selecao_inimigo() {
-    lista_inimigos = [humano, corredor, perseguidor, estalador, verme]
-    lista_escolha = ["humano", "corredor", "perseguidor", "estalador", "verme"]
+    var lista_inimigos = [humano, corredor, perseguidor, estalador, verme]
+    var lista_escolha = ["humano", "corredor", "perseguidor", "estalador", "verme"]
     
     if (inimigo_anterior >= 0) {
         lista_inimigos[inimigo_anterior].style.display = "none"
@@ -15,7 +14,7 @@ function selecao_inimigo() {
        contador++
     ) {
 
-        if (inimigos.value == lista_escolha[contador]) {
+        if (preferido.value == lista_escolha[contador]) {
             lista_inimigos[contador].style.display = "block"
             inimigo_anterior = contador;
         }
@@ -31,10 +30,11 @@ function cadastrar() {
     var nomeVar = nome.value;
     var emailVar = email.value;
     var senhaVar = senha.value;
-    var confirmar_senhaVar = confirmar_senha.value 
-    var inimigosVar = inimigos.value
+    var confirmar_senhaVar = confirmar_senha.value;
+    var preferidoVar = preferido.value;
+    var qtdMortesVar = qtdMortes.value;
 
-       if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmar_senhaVar == "" || inimigosVar == "") {
+       if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmar_senhaVar == "" || preferidoVar == "" || qtdMortesVar == "") {
         cardErro.style.display = "block"
         mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
 
@@ -57,8 +57,8 @@ function cadastrar() {
             nomeServer: nomeVar,
             emailServer: emailVar,
             senhaServer: senhaVar,
-            inimigosServer: inimigosVar
-            
+            preferidoServer: preferidoVar,
+            qtdMortesServer: qtdMortesVar
         })
     }).then(function (resposta) {
 
@@ -71,7 +71,7 @@ function cadastrar() {
 
             setTimeout(() => {
                 window.location = "login.html";
-            }, "2000")
+            }, "3500")
             
             limparFormulario();
             finalizarAguardar();

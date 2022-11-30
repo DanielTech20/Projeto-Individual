@@ -1,0 +1,87 @@
+/* CONFIGURAÇÕES INICIAIS */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* HOME */
+body {
+    font-family: "Roboto", sans-serif;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+ul {
+    all: unset;
+}
+
+li {
+    all: unset;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(164, 204, 83);
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.400);
+    width: 100%;
+    position: fixed;
+}
+
+header .container {
+    margin: 10px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: aquamarine;
+    display: flex;
+    width: 160px;
+    align-items: center;
+}
+
+.cadastro ul {
+    display: flex;
+    justify-content: end;
+    /* margin-right: 50px; */
+}
+
+
+#banner {
+    margin: 0 ;
+    width: 1536px;
+    height: 753.60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#banner .container {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.table {
+    background-color: #070707;
+    width: 60%; 
+    height: 100%;
+}
+
+/* Rodapé */
+footer {
+    background-color: #070707;
+    color: #fff;
+    width: 100%;
+    height: 10vh;
+}
