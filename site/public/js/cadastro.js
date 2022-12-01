@@ -23,7 +23,7 @@ function selecao_inimigo() {
 }
 
 function cadastrar() {
-    aguardar();
+    // aguardar();
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
@@ -52,7 +52,7 @@ function cadastrar() {
             title: 'Preencha todos os campos!'
           })
 
-        finalizarAguardar();
+        // finalizarAguardar();
         return false;
     }
     else {
@@ -100,21 +100,21 @@ function cadastrar() {
                 window.location = "login.html";
             }, "3500")
             
-            limparFormulario();
-            finalizarAguardar();
+            // limparFormulario();
+            // finalizarAguardar();
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");
         }
     }).catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
+        // finalizarAguardar();
     });
 
     return false;
 }
 
 function entrar() {
-    aguardar();
+    // aguardar();
 
     var emailVar = email.value;
     var senhaVar = senha.value;
@@ -136,7 +136,7 @@ function entrar() {
             icon: 'error',
             title: 'Preencha todos os campos!'
           })
-        finalizarAguardar();
+        // finalizarAguardar();
         return false;
     }
     else {
@@ -197,7 +197,7 @@ function entrar() {
 
             resposta.text().then(texto => {
                 console.error(texto);
-                finalizarAguardar(texto);
+                // finalizarAguardar(texto);
             });
         }
 
