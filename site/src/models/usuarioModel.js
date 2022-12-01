@@ -12,7 +12,8 @@ function listar() {
 function entrar(email, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
     var instrucao = `
-        SELECT * FROM usuario WHERE email = '${email}' AND senha = '${senha}';
+        SELECT * FROM usuario JOIN 
+	    inimigo ON idUsuario = fkUsuario WHERE usuario.email = '${email}' and usuario.senha = sha2('${senha}', 256);
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -25,7 +26,7 @@ function cadastrar(nome, email, senha, preferido, qtdMortes) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-    CALL vamosVer('${nome}', '${email}', '${senha}', '${preferido}', ${qtdMortes})
+    CALL vamosVer('${nome}', '${email}', sha2('${senha}', 256), '${preferido}', ${qtdMortes})
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

@@ -27,6 +27,7 @@ li {
 a {
     text-decoration: none;
     color: rgb(164, 204, 83);
+    cursor: pointer;
 }
 
 header {
@@ -57,7 +58,7 @@ header {
 .cadastro ul{
     display: flex;
     justify-content: space-between;
-    margin-right: 50px;
+    margin-right: 25px;
 }
 
 #banner {
@@ -70,14 +71,26 @@ header {
 }
 
 #banner .container {
+    border: solid 1px blue;
     display: flex;
     justify-content: space-between;
     width: 90%;
 }
 
+.hello {
+    background-color: #fcfcfc;
+    border: solid 1px rgb(0, 255, 17);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
 .table {
-    background-color: #070707;
-    width: 60%; 
+    border: solid 1px #d10000;
+    background-color: #000000b3;
+    width: 50%; 
     height: 100%;
 }
 

@@ -35,8 +35,22 @@ function cadastrar() {
     var qtdMortesVar = qtdMortes.value;
 
        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmar_senhaVar == "" || preferidoVar == "" || qtdMortesVar == "") {
-        cardErro.style.display = "block"
-        mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          
+          Toast.fire({
+            icon: 'error',
+            title: 'Preencha todos os campos!'
+          })
 
         finalizarAguardar();
         return false;
@@ -65,9 +79,22 @@ function cadastrar() {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-            cardErro.style.display = "block";
-
-            mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.addEventListener('mouseenter', Swal.stopTimer)
+                  toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+              })
+              
+              Toast.fire({
+                icon: 'success',
+                title: 'Cadastro realizado com sucesso, redirecionando para tela de login!'
+              })
 
             setTimeout(() => {
                 window.location = "login.html";
@@ -93,8 +120,22 @@ function entrar() {
     var senhaVar = senha.value;
 
     if (emailVar == "" || senhaVar == "") {
-        cardErro.style.display = "block"
-        mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          
+          Toast.fire({
+            icon: 'error',
+            title: 'Preencha todos os campos!'
+          })
         finalizarAguardar();
         return false;
     }
@@ -118,7 +159,22 @@ function entrar() {
         console.log("ESTOU NO THEN DO entrar()!")
 
         if (resposta.ok) {
-            console.log(resposta);
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.addEventListener('mouseenter', Swal.stopTimer)
+                  toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+              })
+              
+              Toast.fire({
+                icon: 'success',
+                title: 'Login realizado com sucesso!'
+              })
 
             resposta.json().then(json => {
                 console.log(json);
@@ -127,6 +183,7 @@ function entrar() {
                 sessionStorage.EMAIL_USUARIO = json.email;
                 sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.ID_USUARIO = json.idUsuario;
+                sessionStorage.INIMIGO = json.preferido;
 
                 setTimeout(function () {
                     window.location = "./dashboard/dicas.html";
