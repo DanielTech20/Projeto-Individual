@@ -74,12 +74,12 @@ header {
 .banner {
     background: linear-gradient(0.98deg, rgba(0, 0, 0, 0.65) 0.8%, #070707 99.11%);
     width: 100%;
-    height: 140vh;
+    height: 300vh;
 }
 
 .sobre {
     /* border: solid 1px blue; */
-    height: 50%;
+    height: 25%;
     display: flex;
     align-items: center;
 }
@@ -137,7 +137,7 @@ header {
 
 .historia {
     /* border: solid 1px blue; */
-    height: 50%;
+    height: 25%;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
